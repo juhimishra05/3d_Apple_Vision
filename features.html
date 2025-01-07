@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Features</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    /* Horizontal tabs */
+    .tabs {
+      display: flex;
+      justify-content: space-between;
+      background-color: #fff;
+      border-bottom: 2px solid #ddd;
+      overflow-x: auto;
+    }
+
+    .tabs button {
+      flex: 1;
+      padding: 15px;
+      border: none;
+      background: none;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+      color: #666;
+      transition: color 0.3s, border-bottom 0.3s;
+    }
+
+    .tabs button.active {
+      color: #000;
+      border-bottom: 3px solid #007bff;
+      font-weight: bold;
+    }
+
+    .tabs button:hover {
+      color: #007bff;
+    }
+
+    /* Image scroll container */
+    .image-scroll {
+      display: flex;
+      overflow-x: auto;
+      align-items: center;
+      background-color: #fff;
+      padding: 20px 0;
+    }
+
+    .image-scroll img {
+      width: 60%;
+      margin-left: 50px;
+      margin-right: 50px;
+      border-radius: 10px;
+      padding-left: 190px;
+      padding-right: 190px;
+    }
+
+    .image-scroll::-webkit-scrollbar {
+      display: none;
+    }
+
+    .image-scroll {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+
+    /* Info section */
+    .info-section {
+      padding-left: 100px;
+      padding-right: 100px;
+      text-align: center;
+      font-size: 18px;
+      background-color: #fff;
+      font-weight: bold;
+    }
+
+    .info-section p {
+      margin: 0;
+      color: #333;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Tabs -->
+  <div class="tabs">
+    <button class="active" data-tab="1">Front</button>
+    <button data-tab="2">Cameras and Sensors</button>
+    <button data-tab="3">Audio Straps</button>
+    <button data-tab="4">Head Bands</button>
+    <button data-tab="5">Displays</button>
+    <button data-tab="6">Light Seals</button>
+    <button data-tab="7">Digital Crown</button>
+    <button data-tab="8">Top Button</button>
+    <button data-tab="9">Power</button>
+  </div>
+
+  <!-- Image scroll -->
+  <div class="image-scroll">
+    <img id="image1" src="VisionFeatures00001.png" alt="Front">
+    <img id="image2" src="VisionFeatures00002.png" alt="Cameras and Sensors">
+    <img id="image3" src="VisionFeatures00003.png" alt="Audio Straps">
+    <img id="image4" src="VisionFeatures00004.png" alt="Head Bands">
+    <img id="image5" src="VisionFeatures00005.png" alt="Displays">
+    <img id="image6" src="VisionFeatures00006.png" alt="Light Seal">
+    <img id="image7" src="VisionFeatures00007.png" alt="Digital Crown">
+    <img id="image8" src="VisionFeatures00008.png" alt="Top Button">
+    <img id="image9" src="VisionFeatures00009.png" alt="Power">
+  </div>
+
+  <div class="info-section">
+    <p id="info">A singular piece of three-dimensionally formed laminated glass flows into an aluminum alloy frame that
+      gently curves to wrap around your face.</p>
+  </div>
+
+  <script>
+    const tabs = document.querySelectorAll('.tabs button');
+    const info = document.getElementById('info');
+    const imageScroll = document.querySelector('.image-scroll');
+
+    // Info content for each tab
+    const tabInfo = {
+      1: "A singular piece of three-dimensionally formed laminated glass flows into an aluminum alloy frame that gently curves to wrap around your face.",
+      2: "An array of advanced cameras and sensors work together to let you see the world clearly, understand your environment, and detect hand input.",
+      3: "Speakers are positioned close to your ears, delivering rich Spatial Audio that seamlessly blends with real-world sounds.",
+      4: "Two head bands are included. The Solo Knit Band provides cushioning, breathability, and stretch, and a Fit Dial lets you adjust Apple Vision Pro to your head. The Dual Loop Band features a pair of adjustable upper and lower straps for a precise fit.",
+      5: "A pair of custom micro‑OLED displays deliver more pixels than a 4K TV to each eye — for stunning clarity.",
+      6: "The Light Seal gently conforms to your face, delivering a precise fit while blocking out stray light.",
+      7: "Press the Digital Crown to bring up the Home View, and turn it to control your level of immersion while using Environments.",
+      8: "Press the top button to take spatial videos and spatial photos in the moment.",
+      9: "The external battery supports up to 2 hours of general use and up to 2.5 hours of video playback"
+    };
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+
+        tabs.forEach(t => t.classList.remove('active'));
+
+
+        tab.classList.add('active');
+
+
+        info.textContent = tabInfo[index + 1];
+
+        // Scroll to corresponding image
+        const imageToScroll = document.getElementById('image' + (index + 1));
+        const containerWidth = imageScroll.offsetWidth;
+        const imageCenter = imageToScroll.offsetLeft + imageToScroll.offsetWidth / 2;
+        const scrollPosition = imageCenter - containerWidth / 2;
+
+        imageScroll.scrollTo({
+          left: scrollPosition,
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
+
+</body>
+
+</html>

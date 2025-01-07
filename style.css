@@ -608,3 +608,76 @@ body {
     object-fit: cover;
     opacity:0
 }
+
+.features-scroll{
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: flex-start; /* Start alignment for images */
+    overflow-x: auto;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    background-color: #f0f0f0;
+    scroll-behavior: smooth; /* Smooth scrolling (optional) */
+    padding-left: 20vw; /* Offset to center the first image horizontally */
+    box-sizing: border-box;
+    gap: 20px; /* Spacing between images */
+}
+
+.features-scroll::-webkit-scrollbar {
+    display: none;
+}
+
+.features-scroll img{
+    display: inline-block;
+    max-height: 60%;
+    max-width: 90%;
+    margin-right: 10px;
+    border-radius: 10px;
+}
+
+.tab-nav {
+    display: flex;
+    list-style: none;
+    margin-top: 20px;
+    padding: 0;
+    background-color: #f4f4f4;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .tab-nav li {
+    flex: 1;
+    text-align: center;
+  }
+
+  .tab-nav a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    transition: background-color 0.3s, color 0.3s;
+  }
+
+  .tab-nav a:hover {
+    background-color: #ddd;
+    color: #000;
+  }
+
+  .tab-nav a.active {
+    background-color: #007bff;
+    color: #fff;
+  }
+
+  .info-section {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    font-family: Arial, sans-serif;
+  }
+
+  .info-section p {
+    margin: 0;
+    font-size: 16px;
+  }
